@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 				dest: 'dist/index.html'
 			},
 			css: {
-				src: 'css/*.css',
+				src: 'styles/*.css',
 				dest: 'dist/'
 			}
 		},
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					src: ['css/*.scss'],
+					src: ['styles/*.scss'],
 					ext: '.css'
 				}]
 			}
@@ -87,19 +87,19 @@ module.exports = function(grunt) {
 				src: ['tmp', '.sass-cache', '.tmp']
 			},
 			dist: {
-				src: ['dist/css', 'dist/js', 'dist/index.html', 'dist/*.js']
+				src: ['dist/styles', 'dist/js', 'dist/index.html', 'dist/*.js']
 			}
 		},
 		watch: {
 			dev: {
-				files: ['Gruntfile.js', 'app/*.js', 'app/templates/*.html', 'index.html', 'css/*.scss'],
+				files: ['Gruntfile.js', 'app/*.js', 'app/templates/*.html', 'index.html', 'styles/*.scss'],
 				tasks: ['clean:dist', 'sass', 'html2js:dist','copy', 'concat:dist', 'clean:tmp'],
 				options: {
 					atBegin: true
 				}
 			},
 			min: {
-				files: ['Gruntfile.js', 'app/*.js', 'app/templates/*.html', 'index.html', 'css/*.scss'],
+				files: ['Gruntfile.js', 'app/*.js', 'app/templates/*.html', 'index.html', 'styles/*.scss'],
 				tasks: ['clean:dist', 'sass', 'html2js:dist', 'copy', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'filerev', 'usemin', 'clean:tmp'],
 				options: {
 					atBegin: true
@@ -135,5 +135,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	
 	grunt.registerTask('dev', ['clean', 'bower:dev', 'connect:server', 'watch:dev']);
-	grunt.registerTask('build', ['clean', 'bower:dev', 'connect:server', 'watch:min']);
+	grunt.registerTask('build', ['clean', 'bower:dist', 'connect:server', 'watch:min']);
 };
