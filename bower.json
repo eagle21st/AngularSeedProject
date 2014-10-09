@@ -1,0 +1,24 @@
+{
+  "name": "pungular",
+  "version": "1.0.0",
+  "authors": [
+    "Yang Shu <yangs@punchtab.com>"
+  ],
+  "description": "punchtab anguar seed project, external library",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.25",
+    "angular-route": "~1.2.25",
+    "angular-foundation": "~0.3.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.26"
+  }
+}
